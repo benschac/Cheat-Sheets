@@ -71,6 +71,59 @@
 -- Uses expect library to test.
 
 <!--Sixth Video -->
+### Store Methods
+- Holds state.
+- Dispatch actions.
+- Specify reducer.
+
+- Store needs to be passed a reducer.
+```javascript
+    // reducer from last section.
+    function const counter = (state = 0, action) => {
+        switch(action.type) {
+            case 'INCREMENT':
+                return state + 1;
+            case 'DECREMENT':
+                return state - 1;
+            default:
+                return state;
+        }
+    }
+
+    const { createStore } = Redux;
+    // Pass reducer to store.
+    const store = createStore(counter);
+```
+
+#### Methods of Store
+- `store.getState()`
+    - Returns current state.
+- `store.dispatch()`
+    - Dispatch actions to change state of application.
+- `store.subscribe()`
+    - Register callback any time a dispatch is logged.
+
+
+```javascript
+
+    const render = () => {
+        // Updating the UI here.
+        document.body.innerText = store.getState();
+    }
+    // Listens for a dispatch to update the UI, then registers a callback that will change the UI.
+    store.subscribe(render);
+    // call on start to get initial state of 0.
+    render()
+
+    // When body is clicked dispatch fires action
+    document.addEventListener('click', () => {
+        store.dispatch({type: 'INCREMENT'});
+    });
+```
+
+<!-- Seventh Video -->
+### Implement createStore
+
 
 
 
