@@ -1,7 +1,7 @@
 # Redux Cheat-Sheet
 
 <!--First Video  -->
- ### Store (First principal)
+### Store (First principal)
 - Whole state of the application in one application is stored in one object.
 - Everything (actions, UI changes) that changes in the data is contained in an object called the state.
 
@@ -12,7 +12,7 @@
 - Action is representation of change of data.
 - (Required) `type` which is a string.
 ```javascript
-    type: "INCREMENT
+    type: "INCREMENT"
 ```
 - Components dispatch actions, type + text or something is sent.
 - Components don't know how it happens. They just dispatch it.
@@ -123,7 +123,27 @@
 
 <!-- Seventh Video -->
 ### Implement createStore
+```javascript
+    const createStore = (reducer) => {
+        let state;
+        let listeners = [];
+        const getState = () => state;
 
+        const dispatch = (action) => {
+            state = reducer(state, action);
+            listeners.forEach(listener => listener())
+        }
 
-
+        const subscribe = (listener) => {
+            listeners.push(listener);
+            return () => {
+                listeners = listeners.filter(l => l !== listener);
+            };
+        };
+        
+        dispatch({});
+        return { getState, dispatch, subscribe }
+        
+    }
+```
 
