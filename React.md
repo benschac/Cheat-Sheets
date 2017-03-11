@@ -201,7 +201,3 @@
 ### Life Cycle Hooks
 - Component will mount. (Right before the component mounts)
 - Anytime you think you need to make a check at a certain point in time.
-
-
-
-
