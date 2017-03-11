@@ -162,3 +162,46 @@
 ```
 
 
+### Display State with JSX
+- Looping over objects
+```javascipt
+<!--JSX-->
+{
+    Object
+        // array of keys.
+        .keys(this.state.players)
+        .map(key => <Player key={key} details={this.state.players[key]}/>)
+}
+
+```
+
+### Render Function
+- Can use a method to return other values.
+- Used if you don't want to make another Component.
+```javascript
+    renderOrder(key) {
+        const players = this.props.fishes[key];
+        const count = this.props.order[key];
+
+        if(conditional) {
+            return JSX;
+        }
+
+        return JSX;
+    }
+ { this.renderOrder }
+```
+
+
+### Connecting with FireBase
+- Is one big object.  Just like state.
+- Use Rebase package.
+
+
+### Life Cycle Hooks
+- Component will mount. (Right before the component mounts)
+- Anytime you think you need to make a check at a certain point in time.
+
+
+
+
